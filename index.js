@@ -1,18 +1,24 @@
 var a=require('express');
-var app=a();
+
 var b=require("body-parser");
 var s=require("express-session");
 var m=require("mongodb").MongoClient;
+var MongoStore = require('connect-mongo');
 var url="mongodb+srv://pvscreations:Nagendra2338@cluster0.kajycru.mongodb.net/?retryWrites=true&w=majority";
 var n;//sessions
-
+var app=a();
 app.use(a.static(__dirname));
 app.use(b.urlencoded({extended:true}));//post **
+app.set('trust proxy', 1);
 app.use(s({
-    secret:"dkslakdlskskslk",
+    secret:"SECRET KEY",
     saveUninitialized:true,
-    cookie:{maxAge:100*60*60*24},
-    resave:false
+    resave:false,
+    store:MongoStore.create({
+        mongoUrl:url,
+        ttl:14*24*60*60,
+        autoRemove:'native'
+    })
 }));
 var sessionvalidate=()=>{
     if (n.user==undefined | n.pass==undefined){
