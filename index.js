@@ -3,7 +3,7 @@ var app=a();
 var b=require("body-parser");
 var s=require("express-session");
 var m=require("mongodb").MongoClient;
-var url="mongodb://localhost:32";
+var url=process.env.MONGODB_URI;
 var n;//sessions
 
 app.use(a.static(__dirname));
