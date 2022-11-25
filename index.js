@@ -13,11 +13,7 @@ app.set('trust proxy', 1);
 var st=new MongoStore({
     uri:url,
     collection:'session',
-    connectionOptions: {
-        useNewUrlParser: true,
-        useUnifiedTopology: true,
-        serverSelectionTimeoutMS: 10000
-      }
+   
 })
 app.use(s({
     secret:"SECRET KEY",
