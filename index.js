@@ -19,7 +19,12 @@ app.use(s({
     secret:"SECRET KEY",
     saveUninitialized:true,
     resave:false,
-    store:st
+    store:st,
+    connectionOptions: {
+        useNewUrlParser: true,
+        useUnifiedTopology: true,
+        serverSelectionTimeoutMS: 10000
+      }
 }));
 var sessionvalidate=()=>{
     if (n.user==undefined | n.pass==undefined){
