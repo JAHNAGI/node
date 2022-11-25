@@ -3,7 +3,7 @@ var app=a();
 var b=require("body-parser");
 var s=require("express-session");
 var m=require("mongodb").MongoClient;
-var url="mongodb://localhost:27017";
+var url="mongodb+srv://pvscreations:Nagendra2338@cluster0.kajycru.mongodb.net/?retryWrites=true&w=majority";
 var n;//sessions
 
 app.use(a.static(__dirname));
@@ -48,8 +48,8 @@ app.post("/gayi",(req,res)=>{
     
     m.connect(url,(err,db)=>{
         if (err) throw err;
-        dbo=db.db("credentials");
-        dbo.collection("logins").findOne({"user":id,"password":pass},(err,result)=>{
+        dbo=db.db("Credentials");
+        dbo.collection("Logins").findOne({"user":id,"password":pass},(err,result)=>{
             
             if (err){throw err}
             else if (result==null){
