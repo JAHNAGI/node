@@ -5,6 +5,7 @@ var s=require("express-session");
 var m=require("mongodb").MongoClient;
 var MongoStore = require('connect-mongo');
 var url="mongodb+srv://pvscreations:Nagendra2338@cluster0.kajycru.mongodb.net/?retryWrites=true&w=majority";
+var url=process.env.MONGODB_URI;
 var n;//sessions
 var app=a();
 app.use(a.static(__dirname));
