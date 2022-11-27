@@ -4,7 +4,7 @@ var b=require("body-parser");
 var s=require("express-session");
 var m=require("mongodb").MongoClient;
 var MongoStore = require('connect-mongodb-session')(s);
-var url="mongodb+srv://pvscreations:Nagendra2338@cluster0.kajycru.mongodb.net/?retryWrites=true&w=majority";
+var url=process.env.MONGODB_URI;
 var n;//sessions
 var app=a();
 app.use(a.static(__dirname));
